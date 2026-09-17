@@ -1,60 +1,131 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MercaMoz</title>
+<title>MercaMoz - Compra e Venda</title>
 
 <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
+  background: #f5f5f5;
+  color: #222;
 }
 
 header {
-    background: #087f3e;
-    color: white;
-    padding: 20px;
-    text-align: center;
+  background: #008751;
+  color: white;
+  padding: 18px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 28px;
+}
+
+header p {
+  margin-top: 5px;
 }
 
 .search {
-    padding: 15px;
-    background: white;
+  padding: 15px;
+  background: white;
 }
 
-input {
-    width: 90%;
-    padding: 13px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+.search input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.categories {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 15px;
+  background: white;
+}
+
+.categories button {
+  border: none;
+  background: #eee;
+  padding: 10px 15px;
+  border-radius: 20px;
+  white-space: nowrap;
 }
 
 .container {
-    padding: 15px;
+  padding: 15px;
 }
 
-.card {
-    background: white;
-    padding: 20px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px #ccc;
+.publish {
+  width: 100%;
+  padding: 15px;
+  background: #f2a900;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-button {
-    background: #087f3e;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.product {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px #ddd;
+}
+
+.product .photo {
+  height: 130px;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 45px;
+}
+
+.product-info {
+  padding: 10px;
+}
+
+.product h3 {
+  font-size: 16px;
+}
+
+.price {
+  color: #008751;
+  font-weight: bold;
+  margin-top: 7px;
+}
+
+.location {
+  color: #777;
+  font-size: 13px;
+  margin-top: 5px;
 }
 
 footer {
-    text-align: center;
-    padding: 20px;
-    color: #777;
+  text-align: center;
+  padding: 25px;
+  margin-top: 30px;
+  color: #777;
 }
 </style>
 </head>
@@ -62,44 +133,73 @@ footer {
 <body>
 
 <header>
-    <h1>🛒 MercaMoz</h1>
-    <p>Compre e venda em Moçambique</p>
+  <h1>🇲🇿 MercaMoz</h1>
+  <p>Compra e venda em Moçambique</p>
 </header>
 
 <div class="search">
-    <input type="text" placeholder="Pesquisar produtos...">
+  <input type="text" placeholder="🔎 Procurar produtos...">
+</div>
+
+<div class="categories">
+  <button>Todos</button>
+  <button>📱 Telefones</button>
+  <button>🚗 Carros</button>
+  <button>🏠 Casas</button>
+  <button>👕 Roupas</button>
+  <button>🛋️ Móveis</button>
 </div>
 
 <div class="container">
 
-    <div class="card">
-        <h2>📱 Telefones</h2>
-        <p>Encontre telefones novos e usados.</p>
-        <button>Ver produtos</button>
+  <button class="publish" onclick="alert('A função de publicar anúncios será adicionada na próxima etapa.')">
+    ➕ PUBLICAR ANÚNCIO
+  </button>
+
+  <div class="products">
+
+    <div class="product">
+      <div class="photo">📱</div>
+      <div class="product-info">
+        <h3>Samsung Galaxy</h3>
+        <div class="price">15.000 MT</div>
+        <div class="location">📍 Maputo</div>
+      </div>
     </div>
 
-    <div class="card">
-        <h2>🚗 Automóveis</h2>
-        <p>Carros, motas e outros veículos.</p>
-        <button>Ver produtos</button>
+    <div class="product">
+      <div class="photo">🚗</div>
+      <div class="product-info">
+        <h3>Toyota Corolla</h3>
+        <div class="price">450.000 MT</div>
+        <div class="location">📍 Matola</div>
+      </div>
     </div>
 
-    <div class="card">
-        <h2>🏠 Imóveis</h2>
-        <p>Casas, terrenos e apartamentos.</p>
-        <button>Ver anúncios</button>
+    <div class="product">
+      <div class="photo">🏠</div>
+      <div class="product-info">
+        <h3>Casa para vender</h3>
+        <div class="price">2.500.000 MT</div>
+        <div class="location">📍 Boane</div>
+      </div>
     </div>
 
-    <div class="card">
-        <h2>➕ Vender</h2>
-        <p>Publique o seu produto no MercaMoz.</p>
-        <button>Adicionar anúncio</button>
+    <div class="product">
+      <div class="photo">👕</div>
+      <div class="product-info">
+        <h3>Roupas novas</h3>
+        <div class="price">1.500 MT</div>
+        <div class="location">📍 Maputo</div>
+      </div>
     </div>
 
+  </div>
 </div>
 
 <footer>
-    © 2026 MercaMoz
+  <p>© 2026 MercaMoz</p>
+  <p>Marketplace de compra e venda em Moçambique</p>
 </footer>
 
 </body>
