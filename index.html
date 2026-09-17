@@ -67,4 +67,80 @@ footer{text-align:center;padding:25px;color:#777}
 <select id="categoria">
 <option>Telefones</option>
 <option>Carros</option>
-<option>Cas
+<option>Casas</option>
+<option>Roupas</option>
+<option>Móveis</option>
+<option>Outros</option>
+</select>
+
+<input id="local" placeholder="Cidade / localização">
+<input id="telefone" placeholder="Número de telefone">
+<textarea id="descricao" placeholder="Descrição do produto"></textarea>
+
+<button class="save" onclick="publicar()">PUBLICAR</button>
+</div>
+
+<div class="products" id="produtos">
+
+<div class="product">
+<div class="photo">📱</div>
+<div class="info">
+<h3>Samsung Galaxy</h3>
+<div class="price">15.000 MT</div>
+<div class="location">📍 Maputo</div>
+</div>
+</div>
+
+<div class="product">
+<div class="photo">🚗</div>
+<div class="info">
+<h3>Toyota Corolla</h3>
+<div class="price">450.000 MT</div>
+<div class="location">📍 Matola</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<footer>
+© 2026 MercaMoz
+</footer>
+
+<script>
+function abrirFormulario(){
+document.getElementById("formulario").style.display="block";
+}
+
+function publicar(){
+
+let nome=document.getElementById("nome").value;
+let preco=document.getElementById("preco").value;
+let local=document.getElementById("local").value;
+
+if(nome==="" || preco==="" || local===""){
+alert("Preencha o nome, preço e localização.");
+return;
+}
+
+let produto=document.createElement("div");
+produto.className="product";
+
+produto.innerHTML=
+'<div class="photo">📦</div>'+
+'<div class="info">'+
+'<h3>'+nome+'</h3>'+
+'<div class="price">'+preco+' MT</div>'+
+'<div class="location">📍 '+local+'</div>'+
+'</div>';
+
+document.getElementById("produtos").prepend(produto);
+
+alert("Anúncio publicado!");
+
+document.getElementById("formulario").style.display="none";
+}
+</script>
+
+</body>
+</html>
